@@ -12,7 +12,7 @@ def valid_name(name):
 def valid_age(age):
     try:
         age = int(age) #age must be integers
-        age <= 122
+        age <= 122 #age must be only up to 122 years old
     except:
         print("Invalid Age")
 
