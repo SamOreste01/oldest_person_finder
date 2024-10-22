@@ -7,7 +7,10 @@
 #Find the oldest 
 
 def valid_name(name):
-    pass
+    try:
+        name = str(name) #name must be strings
+    except:
+        print("Invalid Name")
 
 def valid_age(age):
     try:
