@@ -1,26 +1,47 @@
-#Define Name standards
-#Define Age standards
-#Create tuple for data entries
-#Create an dictionary array for the inputted data
-#Input name and age 
-#Ask the user to input or not
-#Find the oldest 
+# Function to validate name (only alphabetic characters and non-empty)
+def is_valid_name(name):
+    return name.isalpha()
 
-def valid_name(name):
+# Function to validate age (integer and between 1 and 120)
+def is_valid_age(age):
     try:
-        name = str(name) #name must be strings
-    except:
-        print("Invalid Name")
+        age = int(age)
+        if 1 <= age <= 120:
+            return True
+        return False
+    except ValueError:
+        return False
 
-def valid_age(age):
-    try:
-        age = int(age) #age must be integers
-        age <= 122 #age must be only up to 122 years old
-    except:
-        print("Invalid Age")
+# Main program
+entries = []  # Array to store entries
 
-user_input = []
+while True:
+    # Input name and validate
+    name = input("Enter a name: ")
+    while not is_valid_name(name):
+        print("Invalid name. Please enter a valid name (only alphabetic characters).")
+        name = input("Enter a name: ")
 
-name = input("Please Enter a Name: ")
+    # Input age and validate
+    age = input("Enter an age: ")
+    while not is_valid_age(age):
+        print("Invalid age. Please enter a valid age between 1 and 120.")
+        age = input("Enter an age: ")
 
-age = int(input("Please Enter Age: "))
+    # Store valid name and age in entries array
+    entries.append((name, int(age)))
+
+    # Ask if the user wants to input another entry
+    another_entry = input("Do you want to input another entry? (Yes/No): ").lower()
+    if another_entry == 'no':
+        break
+
+# Check for the oldest person if there are any entries
+if entries:
+    # Find the oldest person
+    oldest_person = max(entries, key=lambda person: person[1])
+    print(f"The oldest person is: {oldest_person[0]} with age {oldest_person[1]}")
+else:
+    print("No entries available.")
+
+
