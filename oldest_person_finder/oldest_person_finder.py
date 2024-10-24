@@ -35,7 +35,11 @@ def ask_input():
             print("Invalid input! Please type 'Yes' or 'No'.")
 
 def oldest_person():
-    pass
+    if user_input:
+        oldest_person = max(user_input, key=lambda x: x["age"]) 
+        print(f"The oldest person is: {oldest_person['name']}, {oldest_person['age']}")
+    else:
+        print("No entries available.")
 
 def main():
     user_input = []
@@ -43,18 +47,20 @@ def main():
     while True:
         name = input("Please enter a name: ")
         while not valid_name(name):
-            print("Invalid name! Name should contain only alphabetic characters.")
+            print("Invalid name! Name should only alphabets.")
             name = input("Please enter a name: ")
 
         age = input("Please enter age: ")
         while not valid_age(age):
-            print("Invalid age! Age should be a number between 0 and 122.")
+            print("Invalid age! Age should range between 1 and 122.")
             age = input("Please enter age: ")
 
         user_input.append({"name": name, "age": int(age)})
 
         if not ask_input():
             break
+
+    oldest_person(user_input)
 
 main()
 
