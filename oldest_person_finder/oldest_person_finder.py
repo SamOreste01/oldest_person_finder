@@ -34,12 +34,13 @@ def ask_input():
         else:
             print("Invalid input! Please type 'Yes' or 'No'.")
 
-def oldest_person():
-    if user_input:
-        oldest_person = max(user_input, key=lambda x: x["age"]) 
-        print(f"The oldest person is: {oldest_person['name']}, {oldest_person['age']}")
-    else:
+def oldest_person(user_input):
+    if not user_input:
         print("No entries available.")
+        return
+    
+    oldest_person = max(user_input, key=lambda x: x["age"])
+    print(f"The oldest person is: {oldest_person['name']}, {oldest_person['age']}")
 
 def main():
     user_input = []
