@@ -23,13 +23,12 @@ def valid_age(age):
         return False
 
 def ask_input(another_input):
-    another_input = input("Do you want to Enter another entry? (Yes/No): ")
-    if another_input == "Yes":
-        name
-        age
-    elif another_input == "No":
-        break
-        
+    while True:
+        another_input = input("Do you want to enter another entry? (Yes/No): ").strip().lower()
+
+def oldest_person():
+    pass  
+
 user_input = {}
 
 while True:
@@ -42,6 +41,8 @@ while True:
         print("Invalid Age!")
 
 user_input.append((name, int(age))) #Add entries to the dictionary
+
+print(user_input)
 
 
 
