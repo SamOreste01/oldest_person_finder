@@ -1,6 +1,7 @@
 #Define Name standards
 #Define Age standards
-#Create tuple for data entries
+#Define ask for more input
+#Create dictionary for data entries
 #Create an dictionary array for the inputted data
 #Input name and age 
 #Ask the user to input or not
@@ -21,7 +22,15 @@ def valid_age(age):
     except ValueError:
         return False
 
-user_input = []
+def ask_input(another_input):
+    another_input = input("Do you want to Enter another entry? (Yes/No): ")
+    if another_input == "Yes":
+        name
+        age
+    elif another_input == "No":
+        break
+        
+user_input = {}
 
 while True:
     name = input("Please Enter a Name: ")
@@ -31,6 +40,9 @@ while True:
     age = input("Please Enter Age: ")
     while not valid_age(age):
         print("Invalid Age!")
+
+user_input.append((name, int(age))) #Add entries to the dictionary
+
 
 
 
