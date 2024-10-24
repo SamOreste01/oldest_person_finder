@@ -37,23 +37,26 @@ def ask_input():
 def oldest_person():
     pass
 
-user_input = []
+def main():
+    user_input = []
 
-while True:
-    name = input("Please enter a name: ")
-    while not valid_name(name):
-        print("Invalid name! Name should contain only alphabetic characters.")
+    while True:
         name = input("Please enter a name: ")
+        while not valid_name(name):
+            print("Invalid name! Name should contain only alphabetic characters.")
+            name = input("Please enter a name: ")
 
-    age = input("Please enter age: ")
-    while not valid_age(age):
-        print("Invalid age! Age should be a number between 0 and 122.")
         age = input("Please enter age: ")
+        while not valid_age(age):
+            print("Invalid age! Age should be a number between 0 and 122.")
+            age = input("Please enter age: ")
 
-    user_input.append({"name": name, "age": int(age)})
+        user_input.append({"name": name, "age": int(age)})
 
-    if not ask_input():
-        break
+        if not ask_input():
+            break
+
+main()
 
 
    
